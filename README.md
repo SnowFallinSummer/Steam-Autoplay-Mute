@@ -1,16 +1,10 @@
 # Autoplay Mute
 
-Automatically mutes videos in Steam's built-in browser, so Store and Community pages can stay quiet while videos continue to play.
+Tired of videos suddenly making noise while you're browsing Steam? Autoplay Mute keeps native videos in Steam's built-in browser muted, while letting them play as usual.
 
-## What it does
+It mutes videos already on the page and catches new ones as they appear. If a video starts playing or loads more data, the plugin reapplies mute so the sound stays off.
 
-- Mutes videos already on the page when it loads.
-- Watches for videos added later and mutes those too.
-- Reapplies the muted state when a video starts playing or loads data.
-- Leaves playback running, so videos are muted rather than paused.
-- Does not control cross-origin iframe players, such as embedded YouTube videos.
-
-The plugin targets native HTML5 video elements in Steam's embedded Store and Community views. It runs as a WebKit preload and does not need a separate backend.
+It works with native HTML5 videos in Steam's embedded Store and Community views. It doesn't control players loaded inside cross-origin iframes, such as embedded YouTube videos. The plugin runs as a WebKit preload and doesn't need a separate backend.
 
 ## Build and install
 
