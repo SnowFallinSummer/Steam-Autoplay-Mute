@@ -3,7 +3,7 @@ id = "com.snowfallinsummer.autoplaymute"
 name = "Autoplay Mute"
 version = "0.1.0"
 author = "SnowFallinSummer"
-description = "Keeps native videos in Steam's built-in browser muted while they play."
+description = "Keeps videos in Steam's built-in browser muted without stopping playback."
 
 [webkit]
 entry = "preload.ts"
