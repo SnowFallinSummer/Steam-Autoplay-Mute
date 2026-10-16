@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/SteamClientHomebrew/Millennium/main/src/sys/plugin-schema.json",
   "name": "steam_autoplay_mute",
   "common_name": "Autoplay Mute",
-  "description": "Keeps videos in Steam's built-in browser muted without stopping playback.",
+  "description": "Automatically mutes videos in Steam's built-in browser.",
   "backendType": "none",
   "webkitApiVersion": "2.0.0"
 }
