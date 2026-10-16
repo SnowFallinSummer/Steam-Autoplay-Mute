@@ -1,13 +1,16 @@
 # Autoplay Mute
 
-A Millennium WebKit plugin that automatically mutes native HTML5 `<video>` elements in Steam's embedded Store and Community views.
+Autoplay Mute automatically mutes videos in Steam's built-in browser. It targets native HTML5 video elements in Steam's embedded Store and Community views.
 
-## Behavior
+## What it does
 
-- Mutes videos already present when the page loads.
-- Watches for dynamically inserted videos and mutes them.
-- Reasserts mute state when videos play or load data.
-- Does not pause videos or control cross-origin iframe players such as YouTube embeds.
+- Mutes videos that are already on the page when it loads.
+- Watches for videos added later and mutes those too.
+- Reapplies the muted state when a video starts playing or loads data.
+- Leaves playback running, so videos are muted rather than paused.
+- Does not control cross-origin iframe players such as embedded YouTube videos.
+
+The plugin runs as a WebKit preload and does not need a separate backend.
 
 ## Build and install
 
@@ -24,7 +27,7 @@ Enable **Autoplay Mute** in Millennium's plugin settings. Restart Steam if neede
 
 ## AI assistance and maintenance
 
-AI tools assisted with parts of development and troubleshooting. The maintainer is responsible for reviewing, testing, and maintaining the code; AI assistance is disclosed here for submission transparency.
+AI tools helped with parts of development and troubleshooting. The maintainer is responsible for reviewing, testing, and maintaining the code. This disclosure is included for submission transparency.
 
 ## License
 
