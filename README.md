@@ -1,37 +1,31 @@
-﻿# Autoplay Mute (Millennium plugin)
+# Autoplay Mute
 
-Mutes autoplaying `\<video\>` elements on Steam store/community pages so youÂ don't get hit with unexpected audio when opening a page.
+A Millennium WebKit plugin that automatically mutes native HTML5 `<video>` elements in Steam's embedded Store and Community views.
 
-## Setup
+## Behavior
 
-1. Clone the official template:
+- Mutes videos already present when the page loads.
+- Watches for dynamically inserted videos and mutes them.
+- Reasserts mute state when videos play or load data.
+- Does not pause videos or control cross-origin iframe players such as YouTube embeds.
 
-```
-git clone https://github.com/SteamClientHomebrew/PluginTemplate autoplaymute  
-cd autoplaymute
-```
+## Build and install
 
-2. Overwrite the template's `millennium.toml` with the one here.
+Requirements: [Millennium](https://github.com/SteamClientHomebrew/Millennium) and [Bun](https://bun.sh/).
 
-3. Overwrite `preload.ts` with the one here.
+From this repository's root:
 
-4. Delete the template's `backend/` and `frontend/` folders (not needed --Â this plugin is webkit-only, same as the base Review Bar setup).
-
-5. Build:
-
-```
-bun install  
+```sh
+bun install
 bun run build
 ```
 
-6. Enable it in Steam \> Settings \> Millennium \> Plugins.
+Enable **Autoplay Mute** in Millennium's plugin settings. Restart Steam if needed.
 
-7. Fully restart Steam.
+## AI assistance and maintenance
 
-## What this doesn't do
+AI tools assisted with parts of development and troubleshooting. The maintainer is responsible for reviewing, testing, and maintaining the code; AI assistance is disclosed here for submission transparency.
 
-- Can't mute cross-origin embedded video players (e.g. an iframe pointingÂ at YouTube), only native `\<video\>` tags. Steam's own store trailers useÂ native `\<video\>`, so this should cover the common case.
+## License
 
-- Doesn't stop videos from *playing*, just from making sound. If you'dÂ rather have autoplay stopped entirely (not just muted), that's a smallÂ change -- call `video.pause()` alongside setting `muted`.
-
-
+MIT. See [LICENSE](LICENSE).
