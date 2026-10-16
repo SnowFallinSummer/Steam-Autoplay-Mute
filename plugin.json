@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SteamClientHomebrew/Millennium/main/src/sys/plugin-schema.json",
+  "name": "com.snowfallinsummer.autoplaymute",
+  "common_name": "Autoplay Mute",
+  "description": "Automatically mutes native HTML5 video elements in Steam's embedded Store and Community views.",
+  "backendType": "none",
+  "webkitApiVersion": "2.0.0"
+}
