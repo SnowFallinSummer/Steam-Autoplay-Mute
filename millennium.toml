@@ -3,7 +3,7 @@ id = "com.snowfallinsummer.autoplaymute"
 name = "Autoplay Mute"
 version = "0.1.0"
 author = "SnowFallinSummer"
-description = "Mutes autoplaying videos on Steam store/community pages by default."
+description = "Automatically mutes native HTML5 videos in Steam's embedded Store and Community views."
 
 [webkit]
 entry = "preload.ts"
