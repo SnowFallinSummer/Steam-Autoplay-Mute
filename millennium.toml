@@ -1,8 +1,7 @@
-﻿[plugin]
+[plugin]
 id = "com.snowfallinsummer.autoplaymute"
 name = "Autoplay Mute"
 version = "0.1.0"
-author = "SnowFallinSummer"
 description = "Automatically mutes videos in Steam's built-in browser."
 
 [webkit]
