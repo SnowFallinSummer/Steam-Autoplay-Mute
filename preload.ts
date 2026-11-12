@@ -1,14 +1,9 @@
 /**
  * Autoplay Mute — webkit entry point.
  *
- * Mutes any HTML5 <video> element on Steam's store/community pages, so
- * autoplaying trailers/hero banners don't blast audio unexpectedly.
- *
- * Only covers native <video> tags (which is how Steam serves its own
- * hero-banner/trailer clips) -- it can't reach into cross-origin embedded
- * players (e.g. a YouTube iframe), since browsers block scripts from
- * touching another origin's page content. Steam's own trailers are native
- * <video> elements though, so this should cover the common case.
+ * Mutes native HTML5 videos in Steam's store/community pages.
+ * Cross-origin iframe players (such as embedded YouTube) are outside this
+ * preload's access and are intentionally not modified.
  */
 
 const PROCESSED_ATTR = 'data-autoplaymute-done';
@@ -20,8 +15,7 @@ function muteVideo(video: HTMLVideoElement) {
 	video.muted = true;
 	video.defaultMuted = true;
 
-	// Some pages re-enable sound when a video (re)starts playing (e.g. after
-	// scrolling a carousel back to it) -- re-assert muted each time to be safe.
+	// Re-assert mute if Steam changes the video's state during playback.
 	video.addEventListener('play', () => {
 		video.muted = true;
 	});
@@ -34,9 +28,28 @@ function scan() {
 	document.querySelectorAll('video').forEach((el) => muteVideo(el as HTMLVideoElement));
 }
 
-const observer = new MutationObserver(() => scan());
+const observer = new MutationObserver(scan);
 
 export default async function main() {
+	// Querying the document is safe before <body> exists. Observe the document
+	// element instead of assuming body has already been created by Steam.
 	scan();
-	observer.observe(document.body, { childList: true, subtree: true });
+
+	const root = document.documentElement;
+	if (root) {
+		observer.observe(root, { childList: true, subtree: true });
+		return;
+	}
+
+	// Defensive fallback for unusually early preload execution.
+	document.addEventListener(
+		'DOMContentLoaded',
+		() => {
+			scan();
+			if (document.documentElement) {
+				observer.observe(document.documentElement, { childList: true, subtree: true });
+			}
+		},
+		{ once: true },
+	);
 }
