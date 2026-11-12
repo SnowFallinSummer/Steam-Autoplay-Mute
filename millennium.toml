@@ -2,6 +2,7 @@
 id = "com.snowfallinsummer.autoplaymute"
 name = "Autoplay Mute"
 version = "0.1.0"
+author = "SnipCheddaBombs"
 description = "Automatically mutes videos in Steam's built-in browser."
 
 [webkit]
